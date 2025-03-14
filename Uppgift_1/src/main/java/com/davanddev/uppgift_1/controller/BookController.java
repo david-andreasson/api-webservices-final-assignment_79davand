@@ -2,8 +2,10 @@ package com.davanddev.uppgift_1.controller;
 
 import com.davanddev.uppgift_1.model.Book;
 import com.davanddev.uppgift_1.service.BookService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -29,7 +31,7 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody Book book) {
+    public ResponseEntity<Book> createBook(@Valid @RequestBody Book book) {
         Book createdBook = bookService.createBook(book);
         return ResponseEntity.created(URI.create("/books/" + createdBook.getId()))
                 .body(createdBook);
