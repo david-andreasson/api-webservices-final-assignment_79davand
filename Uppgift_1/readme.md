@@ -1,7 +1,7 @@
 # Uppgift 1: Implementera Swagger i ett Spring Boot-projekt
 
 | Data            | Värde |
-| --------------- | ----- |
+|-----------------|-------|
 | **Namn**        |       |
 | **Email**       |       |
 | **GitHub-länk** |       |
@@ -26,7 +26,8 @@
 
 ## 2. Installation och körning
 
-(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och används.)
+(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och
+används.)
 
 ## 3. Användning av API:et
 
@@ -34,15 +35,15 @@
 
 ### Exempel på endpoints:
 
--   **GET** /books
+- **GET** /books
 
-    -   Beskrivning: Hämtar en lista med böcker
-    -   Respons: `{ "data": [...] }`
+    - Beskrivning: Hämtar en lista med böcker
+    - Respons: `{ "data": [...] }`
 
--   **POST** /books
-    -   Beskrivning: Lägger till en ny bok
-    -   Payload: `{ "title": "Test Book", "author": "Author Name" }`
-    -   Respons: `{ "message": "Bok tillagd" }`
+- **POST** /books
+    - Beskrivning: Lägger till en ny bok
+    - Payload: `{ "title": "Test Book", "author": "Author Name" }`
+    - Respons: `{ "message": "Bok tillagd" }`
 
 ## 4. Felhantering
 
@@ -54,6 +55,6 @@
 
 ## 6. Reflektion
 
--   Vad har varit utmanande i uppgiften?
--   Vad skulle kunna förbättras?
--   Eventuella lärdomar från implementationen.
+- Vad har varit utmanande i uppgiften?
+- Vad skulle kunna förbättras?
+- Eventuella lärdomar från implementationen.
