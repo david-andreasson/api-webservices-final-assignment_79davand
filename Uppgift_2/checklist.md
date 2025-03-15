@@ -18,7 +18,7 @@
 ### Inlämningschecklista
 
 - [X] Projektet finns i ett GitHub-repository
-  - [X] Namngivning: `api-webservices-final-assignment_{ditt_gafe_namn}/Uppgift_2`
+    - [X] Namngivning: `api-webservices-final-assignment_{ditt_gafe_namn}/Uppgift_2`
 - [X] Projektstruktur följer kraven:
   ```
   Uppgift_2/kod
@@ -28,15 +28,15 @@
 ### Implementationschecklista
 
 - [ ] Fyra endpoints är implementerade:
-  - [ ] Addition
-  - [ ] Subtraktion
-  - [ ] Multiplikation
-  - [ ] Division
+    - [ ] Addition
+    - [ ] Subtraktion
+    - [ ] Multiplikation
+    - [ ] Division
 - [ ] Felhantering är implementerad:
-  - [ ] API:et returnerar rätt HTTP-statuskoder
-  - [ ] API:et returnerar tydliga felmeddelanden
+    - [ ] API:et returnerar rätt HTTP-statuskoder
+    - [ ] API:et returnerar tydliga felmeddelanden
 - [ ] Tester har genomförts:
-  - [ ] API:et har testats manuellt med Postman eller curl
+    - [ ] API:et har testats manuellt med Postman eller curl
 - [ ] Automatiserade tester är implementerade med JUnit och RestAssured **(VG)**
 
 ### README.md innehåller

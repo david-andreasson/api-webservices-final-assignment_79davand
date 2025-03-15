@@ -1,7 +1,7 @@
 # Uppgift 2: API-testning: strategier och bästa praxis
 
 | Data            | Värde |
-| --------------- | ----- |
+|-----------------|-------|
 | **Namn**        |       |
 | **Email**       |       |
 | **GitHub-länk** |       |
@@ -22,7 +22,8 @@
 
 ## 2. Installation och körning
 
-(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och används.)
+(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och
+används.)
 
 ## 3. Användning av API:et
 
@@ -30,28 +31,28 @@
 
 ### Exempel på endpoints:
 
--   **POST** /calculate/add
+- **POST** /calculate/add
 
-    -   Beskrivning: Adderar två tal
-    -   Payload: `{ "num1": 5, "num2": 10 }`
-    -   Respons: `{ "result": 15 }`
+    - Beskrivning: Adderar två tal
+    - Payload: `{ "num1": 5, "num2": 10 }`
+    - Respons: `{ "result": 15 }`
 
--   **POST** /calculate/subtract
+- **POST** /calculate/subtract
 
-    -   Beskrivning: Subtraherar två tal
-    -   Payload: `{ "num1": 10, "num2": 5 }`
-    -   Respons: `{ "result": 5 }`
+    - Beskrivning: Subtraherar två tal
+    - Payload: `{ "num1": 10, "num2": 5 }`
+    - Respons: `{ "result": 5 }`
 
--   **POST** /calculate/multiply
+- **POST** /calculate/multiply
 
-    -   Beskrivning: Multiplicerar två tal
-    -   Payload: `{ "num1": 4, "num2": 3 }`
-    -   Respons: `{ "result": 12 }`
+    - Beskrivning: Multiplicerar två tal
+    - Payload: `{ "num1": 4, "num2": 3 }`
+    - Respons: `{ "result": 12 }`
 
--   **POST** /calculate/divide
-    -   Beskrivning: Dividerar två tal
-    -   Payload: `{ "num1": 10, "num2": 2 }`
-    -   Respons: `{ "result": 5 }`
+- **POST** /calculate/divide
+    - Beskrivning: Dividerar två tal
+    - Payload: `{ "num1": 10, "num2": 2 }`
+    - Respons: `{ "result": 5 }`
 
 ## 4. Felhantering
 
@@ -63,6 +64,6 @@
 
 ## 6. Reflektion
 
--   Vad har varit utmanande i uppgiften?
--   Vad skulle kunna förbättras?
--   Eventuella lärdomar från implementationen.
+- Vad har varit utmanande i uppgiften?
+- Vad skulle kunna förbättras?
+- Eventuella lärdomar från implementationen.
