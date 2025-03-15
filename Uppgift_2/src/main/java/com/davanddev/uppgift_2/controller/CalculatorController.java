@@ -1,14 +1,14 @@
-package controller;
+package com.davanddev.uppgift_2.controller;
 
+import com.davanddev.uppgift_2.model.CalculatorRequest;
+import com.davanddev.uppgift_2.model.CalculatorResponse;
+import com.davanddev.uppgift_2.service.CalculatorService;
 import lombok.RequiredArgsConstructor;
-import model.CalculatorRequest;
-import model.CalculatorResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.CalculatorService;
 
 @RestController
 @RequestMapping("/calculate")

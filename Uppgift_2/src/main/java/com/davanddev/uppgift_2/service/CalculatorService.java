@@ -1,4 +1,4 @@
-package service;
+package com.davanddev.uppgift_2.service;
 
 import org.springframework.stereotype.Service;
 

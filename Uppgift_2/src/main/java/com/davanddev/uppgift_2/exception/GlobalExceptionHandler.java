@@ -1,4 +1,4 @@
-package exception;
+package com.davanddev.uppgift_2.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

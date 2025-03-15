@@ -1,4 +1,4 @@
-package model;
+package com.davanddev.uppgift_2.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
