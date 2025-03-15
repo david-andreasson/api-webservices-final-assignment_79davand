@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
+/**
+ * REST controller for managing book resources.
+ */
 @RestController
 @RequestMapping("/books")
 @RequiredArgsConstructor
@@ -20,6 +23,11 @@ public class BookController {
 
     private final BookService bookService;
 
+    /**
+     * Retrieves all books.
+     *
+     * @return a list of all books.
+     */
     @Operation(summary = "Get all books")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful retrieval of all books")
@@ -29,6 +37,13 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    /**
+     * Retrieves a book by its id.
+     * If the book is not found, returns a 404 Not Found with an error message.
+     *
+     * @param id the id of the book.
+     * @return a ResponseEntity containing the book or an error message.
+     */
     @Operation(summary = "Get book by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful retrieval of book"),
@@ -46,6 +61,13 @@ public class BookController {
         }
     }
 
+    /**
+     * Creates a new book.
+     * Validates the incoming data and returns the created book with a generated id.
+     *
+     * @param book the book to create.
+     * @return a ResponseEntity containing the created book with HTTP status 201.
+     */
     @Operation(summary = "Create book")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Successful creation of book"),

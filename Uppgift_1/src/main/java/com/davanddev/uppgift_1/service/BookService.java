@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * Service class for managing books using in-memory storage.
+ */
 @Service
 public class BookService {
 
@@ -39,16 +42,33 @@ public class BookService {
         idGenerator.set(20);
     }
 
+    /**
+     * Returns all books.
+     *
+     * @return a list of all books.
+     */
     public List<Book> getAllBooks() {
         return books;
     }
 
+    /**
+     * Retrieves a book by its id.
+     *
+     * @param id the id of the book.
+     * @return an Optional containing the book if found, or empty if not.
+     */
     public Optional<Book> getBookById(Long id) {
         return books.stream()
                 .filter(book -> book.getId().equals(id))
                 .findFirst();
     }
 
+    /**
+     * Creates a new book by assigning a unique id and storing it in memory.
+     *
+     * @param book the book to create.
+     * @return the created book with its generated id.
+     */
     public Book createBook(Book book) {
         book.setId(idGenerator.incrementAndGet());
         books.add(book);

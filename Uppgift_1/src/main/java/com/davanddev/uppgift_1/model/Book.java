@@ -9,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Represents a book entity.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
