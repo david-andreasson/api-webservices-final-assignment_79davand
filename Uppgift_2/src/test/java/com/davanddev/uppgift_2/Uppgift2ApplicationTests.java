@@ -6,8 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Uppgift2ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
+    @Test
+    void mainRunsWithoutExceptions() {
+        Uppgift2Application.main(new String[]{});
+    }
 }
