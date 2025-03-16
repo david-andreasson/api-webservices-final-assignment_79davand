@@ -40,10 +40,15 @@ Dokumentationen kan hållas uppdaterad genom att:
 ## 2. Installation och körning
 *(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och används.)*  
 
-Klona repot från GitHub:
+Klona repot från GitHub:  
 Exempel:
 ```shell 
 git clone https://github.com/david-andreasson/api-webservices-final-assignment_79davand.git
+```
+Efter att ha klonat repot, navigera in i projektmappen för uppgiften:
+
+```code
+cd api-webservices-final-assignment_79davand/Uppgift_1
 ```
 Se till att Java 21 och Maven är installerat på din dator.  
 <details><summary>Installation av Java 21 och Maven <------------- Klicka här för installationsanvisningar</summary>
