@@ -6,10 +6,10 @@
 
 **G:**
 
--   Skapa en SOAP-webbtjänst med CRUD-operationer på en lista med telefonmodeller.
+- Skapa en SOAP-webbtjänst med CRUD-operationer på en lista med telefonmodeller.
 
 **VG:**
 
--   Förklara skillnaden mellan SOAP och REST samt när SOAP fortfarande är relevant.
--   Implementera säkerhet med WS-Security eller Basic Authentication.
--   Beskriva hur en klient skulle anropa tjänsten med XML-baserade anrop.
+- Förklara skillnaden mellan SOAP och REST samt när SOAP fortfarande är relevant.
+- Implementera säkerhet med WS-Security eller Basic Authentication.
+- Beskriva hur en klient skulle anropa tjänsten med XML-baserade anrop.

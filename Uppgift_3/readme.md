@@ -1,7 +1,7 @@
 # Uppgift 3: Implementera en enkel SOAP-webservice
 
 | Data            | Värde |
-| --------------- | ----- |
+|-----------------|-------|
 | **Namn**        |       |
 | **Email**       |       |
 | **GitHub-länk** |       |
@@ -22,7 +22,8 @@
 
 ## 2. Installation och körning
 
-(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och används.)
+(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och
+används.)
 
 ## 3. Användning av API:et
 
@@ -67,6 +68,6 @@
 
 ## 6. Reflektion
 
--   Vad har varit utmanande i uppgiften?
--   Vad skulle kunna förbättras?
--   Eventuella lärdomar från implementationen.
+- Vad har varit utmanande i uppgiften?
+- Vad skulle kunna förbättras?
+- Eventuella lärdomar från implementationen.

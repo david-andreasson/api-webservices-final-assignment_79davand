@@ -18,7 +18,7 @@
 ### Inlämningschecklista
 
 - [X] Projektet finns i ett GitHub-repository
-  - [X] Namngivning: `api-webservices-final-assignment_{ditt_gafe_namn}/Uppgift_3`
+    - [X] Namngivning: `api-webservices-final-assignment_{ditt_gafe_namn}/Uppgift_3`
 - [X] Projektstruktur följer kraven:
   ```
   Uppgift_3/kod
@@ -29,9 +29,9 @@
 
 - [ ] SOAP-webbtjänst är implementerad med CRUD-operationer
 - [ ] Felhantering är implementerad:
-  - [ ] API:et returnerar rätt SOAP-felmeddelanden
+    - [ ] API:et returnerar rätt SOAP-felmeddelanden
 - [ ] Säkerhet är implementerad **(VG)**
-  - [ ] WS-Security eller Basic Authentication är implementerad
+    - [ ] WS-Security eller Basic Authentication är implementerad
 
 ### README.md innehåller
 
