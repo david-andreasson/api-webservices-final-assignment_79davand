@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.org/phonemodels"
+           targetNamespace="http://example.org/phonemodels"
+           elementFormDefault="qualified">
+
+    <!-- Complex type for PhoneModel -->
+    <xs:complexType name="phoneModelType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="modelName" type="xs:string"/>
+            <xs:element name="manufacturer" type="xs:string"/>
+            <xs:element name="releaseYear" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Request element for getting a phone model -->
+    <xs:element name="GetPhoneModelRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response element for returning a phone model -->
+    <xs:element name="GetPhoneModelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="phoneModel" type="tns:phoneModelType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Request element for creating a phone model -->
+    <xs:element name="CreatePhoneModelRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="modelName" type="xs:string"/>
+                <xs:element name="manufacturer" type="xs:string"/>
+                <xs:element name="releaseYear" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Response element for create operation -->
+    <xs:element name="CreatePhoneModelResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
