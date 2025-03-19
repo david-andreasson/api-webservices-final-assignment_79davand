@@ -1,4 +1,4 @@
-package edu.campusmolndal.uppgift_4;
+package com.davanddev.uppgift_4;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

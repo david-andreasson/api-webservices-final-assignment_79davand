@@ -1,4 +1,4 @@
-package edu.campusmolndal.uppgift_4;
+package com.davanddev.uppgift_4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

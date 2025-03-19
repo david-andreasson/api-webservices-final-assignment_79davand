@@ -1,0 +1,19 @@
+# src/main/resources/graphql/schema.graphqls
+
+type Query {
+    getMatchResults: [MatchResult]
+}
+
+type Mutation {
+    createMatchResult(teamA: String!, teamB: String!, scoreA: Int!, scoreB: Int!): MatchResult
+    updateMatchResult(matchId: ID!, teamA: String, teamB: String, scoreA: Int, scoreB: Int): MatchResult
+    deleteMatchResult(matchId: ID!): Boolean
+}
+
+type MatchResult {
+    matchId: ID!
+    teamA: String!
+    teamB: String!
+    scoreA: Int!
+    scoreB: Int!
+}
