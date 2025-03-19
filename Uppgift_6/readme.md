@@ -1,7 +1,7 @@
 # Uppgift 6: API med autentisering och begränsning av anrop
 
 | Data            | Värde |
-| --------------- | ----- |
+|-----------------|-------|
 | **Namn**        |       |
 | **Email**       |       |
 | **GitHub-länk** |       |
@@ -30,7 +30,8 @@
 
 ## 2. Installation och körning
 
-(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och används.)
+(Instruktioner för hur applikationen byggs och körs. Om externa verktyg krävs, beskriv hur dessa installeras och
+används.)
 
 ## 3. Användning av API:et
 
@@ -38,28 +39,28 @@
 
 ### Exempel på endpoints:
 
--   **POST** /register
+- **POST** /register
 
-    -   Beskrivning: Registrerar en ny användare
-    -   Payload: `{ "email": "user@example.com", "password": "securepassword" }`
-    -   Respons: `{ "message": "Användare registrerad" }`
+    - Beskrivning: Registrerar en ny användare
+    - Payload: `{ "email": "user@example.com", "password": "securepassword" }`
+    - Respons: `{ "message": "Användare registrerad" }`
 
--   **POST** /login
+- **POST** /login
 
-    -   Beskrivning: Loggar in användaren och returnerar en JWT-token
-    -   Payload: `{ "email": "user@example.com", "password": "securepassword" }`
-    -   Respons: `{ "token": "eyJhbGciOiJI..." }`
+    - Beskrivning: Loggar in användaren och returnerar en JWT-token
+    - Payload: `{ "email": "user@example.com", "password": "securepassword" }`
+    - Respons: `{ "token": "eyJhbGciOiJI..." }`
 
--   **GET** /dashboard
+- **GET** /dashboard
 
-    -   Beskrivning: Skyddad endpoint, endast för inloggade användare
-    -   Header: `Authorization: Bearer <token>`
-    -   Respons: `{ "message": "Välkommen till dashboarden!" }`
+    - Beskrivning: Skyddad endpoint, endast för inloggade användare
+    - Header: `Authorization: Bearer <token>`
+    - Respons: `{ "message": "Välkommen till dashboarden!" }`
 
--   **POST** /logout
-    -   Beskrivning: Loggar ut användaren
-    -   Header: `Authorization: Bearer <token>`
-    -   Respons: `{ "message": "Utloggad" }`
+- **POST** /logout
+    - Beskrivning: Loggar ut användaren
+    - Header: `Authorization: Bearer <token>`
+    - Respons: `{ "message": "Utloggad" }`
 
 ## 4. Felhantering
 
@@ -71,6 +72,6 @@
 
 ## 6. Reflektion
 
--   Vad har varit utmanande i uppgiften?
--   Vad skulle kunna förbättras?
--   Eventuella lärdomar från implementationen.
+- Vad har varit utmanande i uppgiften?
+- Vad skulle kunna förbättras?
+- Eventuella lärdomar från implementationen.
