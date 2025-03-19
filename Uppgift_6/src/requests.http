@@ -1,0 +1,56 @@
+### Welcome
+GET http://localhost:8080
+
+### Register
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "firstName": "Jason",
+  "lastName": "Vorhees",
+  "email": "friday@13th.org",
+  "password": "mommy"
+}
+
+### Login
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "email": "friday@13th.org",
+  "password": "mommy"
+}
+
+### Get Dashboard (Protected Route)
+GET http://localhost:8080/dashboard
+Authorization: Bearer your_jwt_token_here
+
+### Get All Users (Protected Route)
+GET http://localhost:8080/users
+Authorization: Bearer your_jwt_token_here
+
+### Get User by ID (Protected Route)
+GET http://localhost:8080/users/1
+Authorization: Bearer your_jwt_token_here
+
+### Update User (Protected Route)
+PUT http://localhost:8080/users/1
+Authorization: Bearer your_jwt_token_here
+Content-Type: application/json
+
+{
+  "firstName": "Jasooon",
+  "lastName": "Vorheeees"
+}
+
+### Delete User (Protected Route)
+DELETE http://localhost:8080/users/1
+Authorization: Bearer your_jwt_token_here
+
+### First, login with Google
+GET http://localhost:8080/oauth2/authorization/google
+
+### After successful login, you'll get a JWT token
+### Use that token to access protected endpoints
+GET http://localhost:8080/dashboard
+Authorization: Bearer your_jwt_token_here
