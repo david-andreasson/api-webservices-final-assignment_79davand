@@ -22,9 +22,9 @@ public class Application {
         checkProperty(dotenv, "GOOGLE_CLIENT_ID", "your_google_client_id");
         checkProperty(dotenv, "GOOGLE_CLIENT_SECRET", "your_google_client_secret");
 
-        System.out.println("JWT_SECRET: " + System.getProperty("JWT_SECRET"));
-        System.out.println("GOOGLE_CLIENT_ID: " + System.getProperty("GOOGLE_CLIENT_ID"));
-        System.out.println("GOOGLE_CLIENT_SECRET: " + System.getProperty("GOOGLE_CLIENT_SECRET"));
+//        System.out.println("JWT_SECRET: " + System.getProperty("JWT_SECRET"));
+//        System.out.println("GOOGLE_CLIENT_ID: " + System.getProperty("GOOGLE_CLIENT_ID"));
+//        System.out.println("GOOGLE_CLIENT_SECRET: " + System.getProperty("GOOGLE_CLIENT_SECRET"));
 
         SpringApplication.run(Application.class, args);
     }
