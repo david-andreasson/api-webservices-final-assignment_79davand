@@ -1,4 +1,4 @@
-package edu.campusmolndal.uppgift_6.dto;
+package com.davanddev.uppgift_6.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

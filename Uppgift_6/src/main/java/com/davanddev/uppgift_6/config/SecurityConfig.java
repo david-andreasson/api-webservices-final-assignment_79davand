@@ -1,8 +1,8 @@
-package edu.campusmolndal.uppgift_6.config;
+package com.davanddev.uppgift_6.config;
 
-import edu.campusmolndal.uppgift_6.security.JwtAuthenticationFilter;
-import edu.campusmolndal.uppgift_6.security.OAuth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
+import com.davanddev.uppgift_6.security.OAuth2SuccessHandler;
+import com.davanddev.uppgift_6.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

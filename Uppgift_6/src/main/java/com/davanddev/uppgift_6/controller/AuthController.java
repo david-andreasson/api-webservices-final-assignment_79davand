@@ -1,9 +1,9 @@
-package edu.campusmolndal.uppgift_6.controller;
+package com.davanddev.uppgift_6.controller;
 
-import edu.campusmolndal.uppgift_6.dto.AuthenticationRequest;
-import edu.campusmolndal.uppgift_6.dto.AuthenticationResponse;
-import edu.campusmolndal.uppgift_6.dto.RegisterRequest;
-import edu.campusmolndal.uppgift_6.service.AuthenticationService;
+import com.davanddev.uppgift_6.dto.AuthenticationRequest;
+import com.davanddev.uppgift_6.dto.AuthenticationResponse;
+import com.davanddev.uppgift_6.dto.RegisterRequest;
+import com.davanddev.uppgift_6.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

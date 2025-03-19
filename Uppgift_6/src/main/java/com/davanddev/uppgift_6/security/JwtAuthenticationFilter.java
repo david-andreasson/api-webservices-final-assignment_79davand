@@ -1,6 +1,6 @@
-package edu.campusmolndal.uppgift_6.security;
+package com.davanddev.uppgift_6.security;
 
-import edu.campusmolndal.uppgift_6.service.JwtService;
+import com.davanddev.uppgift_6.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

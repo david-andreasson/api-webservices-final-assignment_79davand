@@ -1,4 +1,4 @@
-package edu.campusmolndal.uppgift_6.config;
+package com.davanddev.uppgift_6.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

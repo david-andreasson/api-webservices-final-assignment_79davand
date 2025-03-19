@@ -1,4 +1,4 @@
-package edu.campusmolndal.uppgift_6.model;
+package com.davanddev.uppgift_6.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

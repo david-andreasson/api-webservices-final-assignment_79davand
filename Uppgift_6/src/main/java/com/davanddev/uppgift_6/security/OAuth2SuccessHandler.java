@@ -1,8 +1,8 @@
-package edu.campusmolndal.uppgift_6.security;
+package com.davanddev.uppgift_6.security;
 
+import com.davanddev.uppgift_6.service.JwtService;
+import com.davanddev.uppgift_6.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.campusmolndal.uppgift_6.service.JwtService;
-import edu.campusmolndal.uppgift_6.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
