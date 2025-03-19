@@ -4,13 +4,13 @@ import com.davanddev.uppgift_6.dto.AuthenticationRequest;
 import com.davanddev.uppgift_6.dto.AuthenticationResponse;
 import com.davanddev.uppgift_6.dto.RegisterRequest;
 import com.davanddev.uppgift_6.service.AuthenticationService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -52,20 +52,13 @@ public class AuthController {
                     .body(Map.of("error", "Too many attempts. Try again later."));
         }
         try {
-            // Attempt authentication
-            AuthenticationResponse response = authService.authenticate(request);
-            // Clear failed login tracking
+            AuthenticationResponse authResponse = authService.authenticate(request);
             clearFailedLogin(clientIp);
 
-            // Build JSON message
             String msg = "OK, " + request.getEmail() + " du är inloggad";
-            Map<String, String> responseBody = Map.of("message", msg);
+            Map<String, String> responseBody = Map.of("message", msg, "token", authResponse.getToken());
 
-            // Return 302 with Location: /dashboard
-            return ResponseEntity
-                    .status(302)
-                    .header("Location", "/dashboard")
-                    .body(responseBody);
+            return ResponseEntity.ok(responseBody);
 
         } catch (Exception e) {
             incrementFailedLogin(clientIp);
@@ -74,10 +67,12 @@ public class AuthController {
         }
     }
 
+
     @PostMapping("/logout")
     public ResponseEntity<Map<String, String>> logout() {
-        return ResponseEntity.ok(Map.of("message", "Logged out"));
+        return ResponseEntity.ok(Map.of("message", "You are now logged out"));
     }
+
 
     @GetMapping("/oauth2/success")
     public ResponseEntity<Map<String, String>> handleOAuth2Success(@AuthenticationPrincipal OAuth2User oauth2User) {

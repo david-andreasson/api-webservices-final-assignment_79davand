@@ -27,8 +27,8 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/auth/**", "/error", "/oauth2/**", "/login")
-                        .permitAll()
+                        .requestMatchers("/", "/auth/register", "/auth/login", "/oauth2/**", "/login").permitAll()
+                        .requestMatchers("/auth/logout", "/dashboard", "/users/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -43,6 +43,7 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
