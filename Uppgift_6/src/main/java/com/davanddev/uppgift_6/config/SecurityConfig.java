@@ -1,5 +1,6 @@
 package com.davanddev.uppgift_6.config;
 
+import com.davanddev.uppgift_6.filter.RateLimitFilter;
 import lombok.RequiredArgsConstructor;
 import com.davanddev.uppgift_6.security.OAuth2SuccessHandler;
 import com.davanddev.uppgift_6.security.JwtAuthenticationFilter;
@@ -22,35 +23,22 @@ public class SecurityConfig {
     private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, RateLimitFilter rateLimitFilter) throws Exception {
         http
-                // Inaktivera CSRF-skydd för JWT
                 .csrf(AbstractHttpConfigurer::disable)
-
-                // Konfigurera auktoriseringsregler
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/",
-                                "/auth/**",
-                                "/error",
-                                "/oauth2/**",
-                                "/login"
-                        ).permitAll()
+                        .requestMatchers("/", "/auth/**", "/error", "/oauth2/**", "/login")
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
-
-                // Konfigurera sessionhantering som tillståndslös
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
-
-                // Konfigurera OAuth2-inloggning
                 .oauth2Login(oauth2 -> oauth2
                         .loginPage("/login")
                         .successHandler(oAuth2SuccessHandler)
                 )
-
-                // Lägg till JWT-autentiseringsfilter
+                .addFilterBefore(rateLimitFilter, UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
