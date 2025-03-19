@@ -6,16 +6,27 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-// Konfigurationsklass för att undvika cirkulära beroenden
+/**
+ * Configuration class for common beans to avoid circular dependencies.
+ */
 @Configuration
 public class ApplicationConfig {
-    // Konfigurera lösenordshantering med BCrypt
+
+    /**
+     * Creates a BCryptPasswordEncoder bean for encoding passwords.
+     *
+     * @return an instance of BCryptPasswordEncoder.
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // Konfigurera ObjectMapper för JSON-hantering
+    /**
+     * Creates an ObjectMapper bean for JSON processing.
+     *
+     * @return a new ObjectMapper instance.
+     */
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper();

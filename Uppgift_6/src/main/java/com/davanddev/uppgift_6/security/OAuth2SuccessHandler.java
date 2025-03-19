@@ -14,6 +14,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * Handles successful OAuth2 authentication by creating or updating a user and generating a JWT token.
+ */
 @Component
 @RequiredArgsConstructor
 public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -24,16 +27,16 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException {
-        // Hämta OAuth2-användare från autentiseringsobjektet
+        // Retrieve the OAuth2 user from the authentication object
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
 
-        // Skapa eller uppdatera användare
+        // Create or update the user
         var user = userService.createOAuthUser(oAuth2User);
 
-        // Generera JWT-token
+        // Generate a JWT token for the user
         var token = jwtService.generateToken(user);
 
-        // Förbered JSON-svar
+        // Prepare and write the JSON response
         response.setContentType("application/json");
         response.getWriter().write(objectMapper.writeValueAsString(Map.of(
                 "token", token,

@@ -6,29 +6,47 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.security.SecureRandom;
 import java.util.Base64;
 
+/**
+ * Main application class for the API.
+ * <p>
+ * This class loads environment variables from the .env file, verifies that required properties are set,
+ * and starts the Spring Boot application.
+ * It also provides a method to generate a secure random key.
+ * </p>
+ */
 @SpringBootApplication
 public class Application {
+
+    /**
+     * Main entry point for the Spring Boot application.
+     *
+     * @param args Command-line arguments.
+     */
     public static void main(String[] args) {
         if (args.length > 0 && args[0].equals("generate-key")) {
             generateKey();
             return;
         }
 
-        // Load environment variables only from .env
+        // Load environment variables from .env file.
         Dotenv dotenv = Dotenv.load();
 
-        // Check required properties from .env only
+        // Verify required properties from the .env file.
         checkProperty(dotenv, "JWT_SECRET", "your_jwt_secret");
         checkProperty(dotenv, "GOOGLE_CLIENT_ID", "your_google_client_id");
         checkProperty(dotenv, "GOOGLE_CLIENT_SECRET", "your_google_client_secret");
 
-//        System.out.println("JWT_SECRET: " + System.getProperty("JWT_SECRET"));
-//        System.out.println("GOOGLE_CLIENT_ID: " + System.getProperty("GOOGLE_CLIENT_ID"));
-//        System.out.println("GOOGLE_CLIENT_SECRET: " + System.getProperty("GOOGLE_CLIENT_SECRET"));
-
         SpringApplication.run(Application.class, args);
     }
 
+    /**
+     * Checks if the specified environment property is set and does not match the default value.
+     * If the property is missing or still set to the default, the application will exit.
+     *
+     * @param dotenv       The Dotenv instance loaded from the .env file.
+     * @param key          The environment variable key.
+     * @param defaultValue The default value that should be replaced.
+     */
     private static void checkProperty(Dotenv dotenv, String key, String defaultValue) {
         String value = dotenv.get(key);
         if (value == null || value.equals(defaultValue)) {
@@ -38,6 +56,9 @@ public class Application {
         System.setProperty(key, value);
     }
 
+    /**
+     * Generates a secure random key and prints it to the console.
+     */
     public static void generateKey() {
         SecureRandom secureRandom = new SecureRandom();
         byte[] key = new byte[32];

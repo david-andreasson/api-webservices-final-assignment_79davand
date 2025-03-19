@@ -1,3 +1,11 @@
+/**
+ * Filter to enforce rate limiting on specific endpoints.
+ * <p>
+ * This filter limits requests to the /auth/register and /login endpoints to a maximum of
+ * 3 requests per minute per IP address. If the limit is exceeded, the IP address is blocked
+ * for 5 minutes.
+ * </p>
+ */
 package com.davanddev.uppgift_6.filter;
 
 import jakarta.servlet.FilterChain;
@@ -14,17 +22,25 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
 @Component
 @RequiredArgsConstructor
 public class RateLimitFilter extends OncePerRequestFilter {
 
     private static final int MAX_REQUESTS_PER_MINUTE = 3;
-    private static final long BLOCK_TIME_MILLIS = 5 * 60_000; // 5 minuter
-    private static final long TIME_WINDOW_MILLIS = 60_000;    // 1 minut
+    private static final long BLOCK_TIME_MILLIS = 5 * 60_000; // 5 minutes
+    private static final long TIME_WINDOW_MILLIS = 60_000;    // 1 minute
 
     private final Map<String, RateLimitInfo> ipRequests = new ConcurrentHashMap<>();
 
+    /**
+     * Filters incoming requests and enforces rate limiting for the /auth/register and /login endpoints.
+     *
+     * @param request     the HTTP request
+     * @param response    the HTTP response
+     * @param filterChain the filter chain
+     * @throws ServletException if a servlet error occurs
+     * @throws IOException      if an I/O error occurs
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -65,6 +81,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    /**
+     * Holds rate limiting information for a specific IP address.
+     */
     private static class RateLimitInfo {
         Deque<Long> requestTimestamps = new LinkedList<>();
         long blockedUntil = 0L;

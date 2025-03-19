@@ -4,13 +4,21 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Configuration properties for JWT settings.
+ */
 @Configuration
 @ConfigurationProperties(prefix = "jwt")
 @Data
 public class JwtConfig {
-    // Hemlig nyckel för JWT-signering
+
+    /**
+     * Secret key used for signing JWT tokens.
+     */
     private String secret;
 
-    // Token-giltighetsperiod i millisekunder
+    /**
+     * JWT expiration time in milliseconds.
+     */
     private long expiration;
 }

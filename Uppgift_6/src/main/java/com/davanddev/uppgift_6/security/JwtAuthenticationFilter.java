@@ -16,6 +16,10 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+/**
+ * JwtAuthenticationFilter is a servlet filter that processes incoming HTTP requests,
+ * extracts the JWT from the Authorization header, validates it, and sets the security context.
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -28,42 +32,35 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
-        // Extrahera Authorization-header
+        // Extract the Authorization header
         final String authHeader = request.getHeader("Authorization");
 
-        // Hoppa över om ingen Authorization-header finns
+        // If no valid Authorization header is present, continue the filter chain
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // Extrahera JWT-token
+        // Extract the JWT token (skip "Bearer " prefix)
         final String jwt = authHeader.substring(7);
         final String userEmail = jwtService.extractUsername(jwt);
 
-        // Kontrollera om användaren redan är autentiserad
+        // If the token contains a valid email and the user is not already authenticated, process the token
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            // Hämta användardetaljer från databasen
             var userDetails = userDetailsService.loadUserByUsername(userEmail);
 
-            // Validera token
             if (jwtService.isTokenValid(jwt, userDetails)) {
-                // Skapa autentiseringsobjekt
                 var authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
                         userDetails.getAuthorities()
                 );
-
-                // Lägg till request-detaljer
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-                // Sätt autentiseringskontext
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
 
-        // Fortsätt filterkedjan
+        // Continue the filter chain
         filterChain.doFilter(request, response);
     }
 }

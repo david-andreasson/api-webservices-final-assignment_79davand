@@ -5,6 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Data Transfer Object for user registration.
+ * <p>
+ * Contains the necessary user details required for registration.
+ * </p>
+ */
 @Data
 @Builder
 @AllArgsConstructor

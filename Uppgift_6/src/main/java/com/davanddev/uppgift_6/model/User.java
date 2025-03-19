@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Represents a user entity in the system and implements UserDetails for Spring Security.
+ */
 @Data
 @Builder
 @NoArgsConstructor
@@ -19,6 +22,7 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -33,11 +37,21 @@ public class User implements UserDetails {
     private String provider;
     private String pictureUrl;
 
+    /**
+     * Returns the authorities granted to the user.
+     *
+     * @return a list containing a single authority: ROLE_USER.
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+    /**
+     * Returns the user's email, which is used as the username.
+     *
+     * @return the user's email.
+     */
     @Override
     public String getUsername() {
         return email;
