@@ -1,5 +1,7 @@
-package com.davanddev.uppgift_6.config;
+package edu.campusmolndal.uppgift_6.config;
 
+import edu.campusmolndal.uppgift_6.security.JwtAuthenticationFilter;
+import edu.campusmolndal.uppgift_6.security.OAuth2SuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,14 +18,15 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    private final com.davanddev.uppgift_6.security.JwtAuthenticationFilter jwtAuthFilter;
-    private final com.davanddev.uppgift_6.security.OAuth2SuccessHandler oAuth2SuccessHandler;
+    private final JwtAuthenticationFilter jwtAuthFilter;
+    private final OAuth2SuccessHandler oAuth2SuccessHandler;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 // Inaktivera CSRF-skydd för JWT
                 .csrf(AbstractHttpConfigurer::disable)
+
                 // Konfigurera auktoriseringsregler
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(

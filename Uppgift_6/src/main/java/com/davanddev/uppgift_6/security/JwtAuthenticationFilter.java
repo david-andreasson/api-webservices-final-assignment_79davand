@@ -1,5 +1,6 @@
-package edu.campusmolndal.security;
-import edu.campusmolndal.service.JwtService;
+package edu.campusmolndal.uppgift_6.security;
+
+import edu.campusmolndal.uppgift_6.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

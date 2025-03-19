@@ -1,7 +1,6 @@
-package com.davanddev.uppgift_6.repository;
+package edu.campusmolndal.uppgift_6.repository;
 
-
-import com.davanddev.uppgift_6.model.User;
+import edu.campusmolndal.uppgift_6.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

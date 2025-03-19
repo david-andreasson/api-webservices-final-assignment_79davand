@@ -1,5 +1,9 @@
-package com.davanddev.uppgift_6.controller;
+package edu.campusmolndal.uppgift_6.controller;
 
+import edu.campusmolndal.uppgift_6.dto.AuthenticationRequest;
+import edu.campusmolndal.uppgift_6.dto.AuthenticationResponse;
+import edu.campusmolndal.uppgift_6.dto.RegisterRequest;
+import edu.campusmolndal.uppgift_6.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,13 +21,13 @@ public class AuthController {
 
     // Endpoint för användarregistrering
     @PostMapping("/register")
-    public ResponseEntity<edu.campusmolndal.dto.AuthenticationResponse> register(@RequestBody edu.campusmolndal.dto.RegisterRequest request) {
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authService.register(request));
     }
 
     // Endpoint för inloggning
     @PostMapping("/login")
-    public ResponseEntity<edu.campusmolndal.dto.AuthenticationResponse> authenticate(@RequestBody edu.campusmolndal.dto.AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(authService.authenticate(request));
     }
 
