@@ -14,6 +14,10 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Filter that applies rate limiting to specific endpoints.
+ * Limits requests for "/auth/register" and "/login" to a maximum number per minute.
+ */
 @Component
 @RequiredArgsConstructor
 public class RateLimitFilter extends OncePerRequestFilter {
@@ -24,6 +28,15 @@ public class RateLimitFilter extends OncePerRequestFilter {
 
     private final Map<String, RateLimitInfo> ipRequests = new ConcurrentHashMap<>();
 
+    /**
+     * Filters incoming requests and enforces rate limiting on specified endpoints.
+     *
+     * @param request the incoming HTTP request
+     * @param response the outgoing HTTP response
+     * @param filterChain the filter chain to pass control to the next filter
+     * @throws ServletException if an error occurs during filtering
+     * @throws IOException if an I/O error occurs during filtering
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -64,6 +77,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
+    /**
+     * Helper class to store rate limiting information for a specific IP address.
+     */
     private static class RateLimitInfo {
         Deque<Long> requestTimestamps = new LinkedList<>();
         long blockedUntil = 0L;
